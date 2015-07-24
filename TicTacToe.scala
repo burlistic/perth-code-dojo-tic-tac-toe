@@ -6,13 +6,16 @@ var board = "_________"
 
 	def MakeAMove(position:Int, mark:Char): String = {
 		 
-		//board = input
-		//println("char" + board.charAt(position))
-
 		// TODO - check position isn't taken
 
-		board = board.substring(0, position) + mark + board.substring(position, board.length)
-		println("new board " + board)
+		if(position == 0)
+		{
+			board = board.substring(0, position) + mark + board.substring(position, board.length)
+		} else {
+			board = board.substring(0, position) + mark + board.substring(position, board.length - 1)
+		}
+		
+		//println("new board " + board)
 
 		if(!board.contains("_"))
 		 {
@@ -65,14 +68,17 @@ var testLib = new TestLib();
 
 // Board returns state once a move has been made
 
-val (postion, mark) = (0, 'x')
-var output1 = ticTacToeGame.MakeAMove(postion, mark)
+//val (postion, mark) = (0, 'x')
+var output1 = ticTacToeGame.MakeAMove(0, 'x')
 testLib.Test(output1, "x_________");
 
 // // Simple x win
 
-// var output2 = ticTacToeGame.MakeAMove("xxx_______")
-// testLib.Test(output2, "x wins! xxx_______");
+var ticTacToeGame2 = new TicTacToeGame()
+ticTacToeGame2.MakeAMove(0, 'x')
+ticTacToeGame2.MakeAMove(1, 'x')
+var output2 = ticTacToeGame2.MakeAMove(2, 'x')
+testLib.Test(output2, "x wins! xxx_______");
 
 // // Simple o win
 
