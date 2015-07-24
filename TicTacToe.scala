@@ -77,5 +77,11 @@ testLib.Test(output3, "o wins! ooo_______");
 var output4 = ticTacToeGame.MakeAMove("xoxoxoxox")
 testLib.Test(output4, "game over! - no winner");   
 
+// Invalid move
+
+ticTacToeGame.MakeAMove("ooo_______")
+var output4 = ticTacToeGame.MakeAMove("oox_______")
+testLib.Test(output4, "invalid move! ooo_______"); 
+
 // TODO - uppcase getting converted to lower case?
 
