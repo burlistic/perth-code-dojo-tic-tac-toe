@@ -6,13 +6,14 @@ var board = "_________"
 
 	def MakeAMove(position:Int, mark:Char): String = {
 
+		if(board.substring(position, position + 1) != "_")
+		{
+			return "invalid move! " + board
+		}
+
 		if(position == 0)
 		{
-			// if(board.substring(position, position + 1) != "_")
-			// {
-			// 	return "invalid move! " + board
-			// }
-			println("leng " + board.length)
+		//	println("leng " + board.length)
 
 			board = mark + board.substring(position + 1, board.length)
 		}
@@ -93,7 +94,7 @@ ticTacToeGame3.MakeAMove(1, 'o')
 var output3 = ticTacToeGame3.MakeAMove(2, 'o')
 testLib.Test(output3, "o wins! ooo______");
 
-// // Game over
+// Game over
 
 var ticTacToeGame4 = new TicTacToeGame()
 ticTacToeGame4.MakeAMove(0, 'x')
@@ -107,12 +108,12 @@ ticTacToeGame4.MakeAMove(7, 'o')
 var output4 = ticTacToeGame4.MakeAMove(8, 'x')
 testLib.Test(output4, "game over! - no winner"); 
 
-// // Invalid move
+// Invalid move
 
-// var ticTacToeGame5 = new TicTacToeGame()
-// ticTacToeGame5.MakeAMove(0, 'o')
-// var output5 = ticTacToeGame5.MakeAMove(0, 'x')
-// testLib.Test(output5, "invalid move! o________"); 
+var ticTacToeGame5 = new TicTacToeGame()
+ticTacToeGame5.MakeAMove(0, 'o')
+var output5 = ticTacToeGame5.MakeAMove(0, 'x')
+testLib.Test(output5, "invalid move! o________"); 
 
 // TODO - uppcase getting converted to lower case?
 
