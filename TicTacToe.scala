@@ -4,7 +4,7 @@ class TicTacToeGame {
 
 //var board
 
-	def MakeAMove {
+	def MakeAMove(input:String): String = {
 		 println("welcome to ticTacToe!")
 
 		 //println("input: " + args)
@@ -17,28 +17,42 @@ class TicTacToeGame {
 		 // }
 
 		 println("board: " + board)
+
+		 return board
 	}	
 
 
-	// TODO - move to test lib
-    def Test(input:Int, expected:String) = {
+	
 
-	val output = Convert(input)
+}
 
-	if(output != expected)
+class TestLib {
+
+// TODO - move to test lib
+    def Test(input:String, expected:String):Boolean = {
+
+	//val output = Convert(input)
+
+	if(input != expected)
 	{
 		println("Test failed. Input " + input + 
-			" Output: " + output + 
 			" Expected: " + expected)
 
+		return false
 
 	}
 
-	println("Test passed. Input " + input + " Output: " + output)
+	println("Test passed. Input " + input + " Expected: " + expected)
+
+	return true
+
     }
 
 }
 
 var ticTacToeGame = new TicTacToeGame()
+var testLib = new TestLib();
 
-ticTacToeGame.MakeAMove(X_________, X_________)
+var output1 = ticTacToeGame.MakeAMove("X_________")
+testLib.Test("X_________", output1); // Board returns state once a move has been made
+
