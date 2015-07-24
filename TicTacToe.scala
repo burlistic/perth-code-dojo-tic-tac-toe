@@ -1,21 +1,13 @@
 class TicTacToeGame {
 
-// constructor? empty string?
-
-//var board
+// Outer constructor
+println("welcome to ticTacToe!")
+var board = ""
 
 	def MakeAMove(input:String): String = {
-		 println("welcome to ticTacToe!")
-
-		 //println("input: " + args(0))
-
-		 var board = ""
+		 
 		 board = input
-
-		 // for(i <- 0 until args.length) {
-		 //  	println(args(i))
-		 // }
-
+		 
 		 if(board.contains("xxx"))
 		 {
 		 	return "x wins! " + board
@@ -26,7 +18,7 @@ class TicTacToeGame {
 		 	return "o wins! " + board
 		 }
 
-		 println("board: " + board)
+//		 println("board: " + board)
 
 		 return board
 	}	
