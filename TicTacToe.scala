@@ -21,6 +21,11 @@ class TicTacToeGame {
 		 	return "x wins! " + board
 		 }
 
+		 if(board.contains("ooo"))
+		 {
+		 	return "o wins! " + board
+		 }
+
 		 println("board: " + board)
 
 		 return board
@@ -60,10 +65,15 @@ var testLib = new TestLib();
 var output1 = ticTacToeGame.MakeAMove("x_________")
 testLib.Test(output1, "x_________"); 
 
-// Simple win
+// Simple x win
 
 var output2 = ticTacToeGame.MakeAMove("xxx_______")
-testLib.Test(output2, "x wins! xxx_______"); 
+testLib.Test(output2, "x wins! xxx_______");
+
+// Simple o win
+
+var output3 = ticTacToeGame.MakeAMove("ooo_______")
+testLib.Test(output3, "o wins! ooo_______");  
 
 // TODO - uppcase getting converted to lower case?
 
