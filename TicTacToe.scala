@@ -13,8 +13,6 @@ var board = "_________"
 
 		if(position == 0)
 		{
-		//	println("leng " + board.length)
-
 			board = mark + board.substring(position + 1, board.length)
 		}
 		else {
@@ -23,10 +21,11 @@ var board = "_________"
 		
 		//println("new board " + board)
 
+		// TODO - put into check board state method
 		if(!board.contains("_"))
-		 {
-		 	return "game over! - no winner"
-		 }
+		{
+	 		return "game over! - no winner"
+		}
 		 
 		 if(board.contains("xxx"))
 		 {
@@ -78,7 +77,7 @@ var testLib = new TestLib();
 var output1 = ticTacToeGame.MakeAMove(0, 'x')
 testLib.Test(output1, "x________");
 
-// // Simple x win
+// Simple x win
 
 var ticTacToeGame2 = new TicTacToeGame()
 ticTacToeGame2.MakeAMove(0, 'x')
@@ -86,7 +85,7 @@ ticTacToeGame2.MakeAMove(1, 'x')
 var output2 = ticTacToeGame2.MakeAMove(2, 'x')
 testLib.Test(output2, "x wins! xxx______");
 
-// // Simple o win
+// Simple o win
 
 var ticTacToeGame3 = new TicTacToeGame()
 ticTacToeGame3.MakeAMove(0, 'o')
@@ -114,6 +113,19 @@ var ticTacToeGame5 = new TicTacToeGame()
 ticTacToeGame5.MakeAMove(0, 'o')
 var output5 = ticTacToeGame5.MakeAMove(0, 'x')
 testLib.Test(output5, "invalid move! o________"); 
+
+// Mid order o win
+
+var ticTacToeGame6 = new TicTacToeGame()
+ticTacToeGame6.MakeAMove(0, 'x')
+ticTacToeGame6.MakeAMove(1, 'o')
+ticTacToeGame6.MakeAMove(2, 'x')
+ticTacToeGame6.MakeAMove(3, 'o')
+ticTacToeGame6.MakeAMove(8, 'x')
+ticTacToeGame6.MakeAMove(4, 'o')
+ticTacToeGame6.MakeAMove(7, 'x')
+var output6 = ticTacToeGame6.MakeAMove(5, 'o')
+testLib.Test(output6, "o wins! xoxooo_xx");
 
 // TODO - uppcase getting converted to lower case?
 
