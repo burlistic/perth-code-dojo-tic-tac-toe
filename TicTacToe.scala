@@ -53,6 +53,10 @@ class TestLib {
 var ticTacToeGame = new TicTacToeGame()
 var testLib = new TestLib();
 
-var output1 = ticTacToeGame.MakeAMove("X_________")
-testLib.Test("X_________", output1); // Board returns state once a move has been made
+// Board returns state once a move has been made
+
+var output1 = ticTacToeGame.MakeAMove("x_________")
+testLib.Test("x_________", output1); 
+
+// TODO - uppcase getting converted to lower case?
 
