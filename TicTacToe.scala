@@ -36,7 +36,7 @@ var board = "_________"
 		 	return "o wins! " + board
 		 }
 
-		 // diagnals
+		 // diagonals
 
 		 //println(board.substring(0, 1))
 		 //println(board.substring(4, 5))
@@ -50,6 +50,16 @@ var board = "_________"
 		 	board.substring(6, 7) == "o"))
 		 {
 		 	return "o wins! " + board
+		 }
+
+		 if((board.substring(0, 1) == "x" && 
+		 	board.substring(4, 5) == "x" && 
+		 	board.substring(8, 9) == "x") ||
+			(board.substring(2, 3) == "x" && 
+		 	board.substring(4, 5) == "x" && 
+		 	board.substring(6, 7) == "x"))
+		 {
+		 	return "x wins! " + board
 		 }
 
 //		 println("board: " + board)
@@ -142,7 +152,7 @@ ticTacToeGame6.MakeAMove(7, 'x')
 var output6 = ticTacToeGame6.MakeAMove(5, 'o')
 testLib.Test(output6, "o wins! xoxooo_xx");
 
-// Diagnal o win - top left to bottom right
+// Diagonal o win - top left to bottom right
 
 // oxo
 // xox
@@ -159,7 +169,7 @@ ticTacToeGame7.MakeAMove(6, 'x')
 var output7 = ticTacToeGame7.MakeAMove(8, 'o')
 testLib.Test(output7, "o wins! oxoxoxx_o");
 
-// Diagnal o win - top right to bottom left
+// Diagonal o win - top right to bottom left
 
 // oxo
 // xox
@@ -175,7 +185,7 @@ ticTacToeGame8.MakeAMove(5, 'x')
 var output8 = ticTacToeGame8.MakeAMove(6, 'o')
 testLib.Test(output8, "o wins! oxoxoxo__");
 
-// Diagnal x win - top left to bottom right
+// Diagonal x win - top left to bottom right
 
 var ticTacToeGame9 = new TicTacToeGame()
 ticTacToeGame9.MakeAMove(0, 'x')
@@ -186,9 +196,9 @@ ticTacToeGame9.MakeAMove(4, 'x')
 ticTacToeGame9.MakeAMove(5, 'o')
 ticTacToeGame9.MakeAMove(6, 'o')
 var output9 = ticTacToeGame9.MakeAMove(8, 'x')
-testLib.Test(output9, "o wins! xoxoxoo_x");
+testLib.Test(output9, "x wins! xoxoxoo_x");
 
-// Diagnal x win - top right to bottom left
+// Diagonal x win - top right to bottom left
 
 var ticTacToeGame10 = new TicTacToeGame()
 ticTacToeGame10.MakeAMove(0, 'x')
@@ -198,7 +208,7 @@ ticTacToeGame10.MakeAMove(3, 'o')
 ticTacToeGame10.MakeAMove(4, 'x')
 ticTacToeGame10.MakeAMove(5, 'o')
 var output10 = ticTacToeGame10.MakeAMove(6, 'x')
-testLib.Test(output10, "o wins! xoxoxox__");
+testLib.Test(output10, "x wins! xoxoxox__");
 
 // TODO - work out why uppcase getting converted to lower case? Add definsive code?
 
