@@ -5,14 +5,19 @@ println("welcome to ticTacToe!")
 var board = "_________"
 
 	def MakeAMove(position:Int, mark:Char): String = {
-		 
-		// TODO - check position isn't taken
 
 		if(position == 0)
 		{
-			board = board.substring(0, position) + mark + board.substring(position, board.length)
-		} else {
-			board = board.substring(0, position) + mark + board.substring(position, board.length - 1)
+			// if(board.substring(position, position + 1) != "_")
+			// {
+			// 	return "invalid move! " + board
+			// }
+			println("leng " + board.length)
+
+			board = mark + board.substring(position + 1, board.length)
+		}
+		else {
+			board = board.substring(0, position) + mark + board.substring(position + 1, board.length)
 		}
 		
 		//println("new board " + board)
@@ -70,7 +75,7 @@ var testLib = new TestLib();
 
 //val (postion, mark) = (0, 'x')
 var output1 = ticTacToeGame.MakeAMove(0, 'x')
-testLib.Test(output1, "x_________");
+testLib.Test(output1, "x________");
 
 // // Simple x win
 
@@ -78,23 +83,36 @@ var ticTacToeGame2 = new TicTacToeGame()
 ticTacToeGame2.MakeAMove(0, 'x')
 ticTacToeGame2.MakeAMove(1, 'x')
 var output2 = ticTacToeGame2.MakeAMove(2, 'x')
-testLib.Test(output2, "x wins! xxx_______");
+testLib.Test(output2, "x wins! xxx______");
 
 // // Simple o win
 
-// var output3 = ticTacToeGame.MakeAMove("ooo_______")
-// testLib.Test(output3, "o wins! ooo_______"); 
+var ticTacToeGame3 = new TicTacToeGame()
+ticTacToeGame3.MakeAMove(0, 'o')
+ticTacToeGame3.MakeAMove(1, 'o')
+var output3 = ticTacToeGame3.MakeAMove(2, 'o')
+testLib.Test(output3, "o wins! ooo______");
 
 // // Game over
 
-// var output4 = ticTacToeGame.MakeAMove("xoxoxoxox")
-// testLib.Test(output4, "game over! - no winner");   
+var ticTacToeGame4 = new TicTacToeGame()
+ticTacToeGame4.MakeAMove(0, 'x')
+ticTacToeGame4.MakeAMove(1, 'o')
+ticTacToeGame4.MakeAMove(2, 'x')
+ticTacToeGame4.MakeAMove(3, 'o')
+ticTacToeGame4.MakeAMove(4, 'x')
+ticTacToeGame4.MakeAMove(5, 'o')
+ticTacToeGame4.MakeAMove(6, 'x')
+ticTacToeGame4.MakeAMove(7, 'o')
+var output4 = ticTacToeGame4.MakeAMove(8, 'x')
+testLib.Test(output4, "game over! - no winner"); 
 
 // // Invalid move
 
-// ticTacToeGame.MakeAMove("ooo_______")
-// var output4 = ticTacToeGame.MakeAMove("oox_______")
-// testLib.Test(output4, "invalid move! ooo_______"); 
+// var ticTacToeGame5 = new TicTacToeGame()
+// ticTacToeGame5.MakeAMove(0, 'o')
+// var output5 = ticTacToeGame5.MakeAMove(0, 'x')
+// testLib.Test(output5, "invalid move! o________"); 
 
 // TODO - uppcase getting converted to lower case?
 
