@@ -21,7 +21,6 @@ var board = "_________"
 		
 		//println("new board " + board)
 
-		// TODO - put into check board state method
 		if(!board.contains("_"))
 		{
 	 		return "game over! - no winner"
@@ -33,6 +32,22 @@ var board = "_________"
 		 }
 
 		 if(board.contains("ooo"))
+		 {
+		 	return "o wins! " + board
+		 }
+
+		 // diagnals
+
+		 //println(board.substring(0, 1))
+		 //println(board.substring(4, 5))
+		 //println(board.substring(8, 9))
+
+		 if((board.substring(0, 1) == "o" && 
+		 	board.substring(4, 5) == "o" && 
+		 	board.substring(8, 9) == "o") ||
+			(board.substring(2, 3) == "o" && 
+		 	board.substring(4, 5) == "o" && 
+		 	board.substring(6, 7) == "o"))
 		 {
 		 	return "o wins! " + board
 		 }
@@ -127,7 +142,7 @@ ticTacToeGame6.MakeAMove(7, 'x')
 var output6 = ticTacToeGame6.MakeAMove(5, 'o')
 testLib.Test(output6, "o wins! xoxooo_xx");
 
-// Diagnal o win
+// Diagnal o win - top left to bottom right
 
 // oxo
 // xox
@@ -144,5 +159,46 @@ ticTacToeGame7.MakeAMove(6, 'x')
 var output7 = ticTacToeGame7.MakeAMove(8, 'o')
 testLib.Test(output7, "o wins! oxoxoxx_o");
 
-// TODO - uppcase getting converted to lower case?
+// Diagnal o win - top right to bottom left
+
+// oxo
+// xox
+// o__
+
+var ticTacToeGame8 = new TicTacToeGame()
+ticTacToeGame8.MakeAMove(0, 'o')
+ticTacToeGame8.MakeAMove(1, 'x')
+ticTacToeGame8.MakeAMove(2, 'o')
+ticTacToeGame8.MakeAMove(3, 'x')
+ticTacToeGame8.MakeAMove(4, 'o')
+ticTacToeGame8.MakeAMove(5, 'x')
+var output8 = ticTacToeGame8.MakeAMove(6, 'o')
+testLib.Test(output8, "o wins! oxoxoxo__");
+
+// Diagnal x win - top left to bottom right
+
+var ticTacToeGame9 = new TicTacToeGame()
+ticTacToeGame9.MakeAMove(0, 'x')
+ticTacToeGame9.MakeAMove(1, 'o')
+ticTacToeGame9.MakeAMove(2, 'x')
+ticTacToeGame9.MakeAMove(3, 'o')
+ticTacToeGame9.MakeAMove(4, 'x')
+ticTacToeGame9.MakeAMove(5, 'o')
+ticTacToeGame9.MakeAMove(6, 'o')
+var output9 = ticTacToeGame9.MakeAMove(8, 'x')
+testLib.Test(output9, "o wins! xoxoxoo_x");
+
+// Diagnal x win - top right to bottom left
+
+var ticTacToeGame10 = new TicTacToeGame()
+ticTacToeGame10.MakeAMove(0, 'x')
+ticTacToeGame10.MakeAMove(1, 'o')
+ticTacToeGame10.MakeAMove(2, 'x')
+ticTacToeGame10.MakeAMove(3, 'o')
+ticTacToeGame10.MakeAMove(4, 'x')
+ticTacToeGame10.MakeAMove(5, 'o')
+var output10 = ticTacToeGame10.MakeAMove(6, 'x')
+testLib.Test(output10, "o wins! xoxoxox__");
+
+// TODO - work out why uppcase getting converted to lower case? Add definsive code?
 
