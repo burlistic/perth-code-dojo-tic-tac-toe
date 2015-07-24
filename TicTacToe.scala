@@ -2,11 +2,17 @@ class TicTacToeGame {
 
 // Outer constructor
 println("welcome to ticTacToe!")
-var board = ""
+var board = "_________"
 
-	def MakeAMove(input:String): String = {
+	def MakeAMove(position:Int, mark:Char): String = {
 		 
-		 board = input
+		//board = input
+		//println("char" + board.charAt(position))
+
+		// TODO - check position isn't taken
+
+		board = board.substring(0, position) + mark + board.substring(position, board.length)
+		println("new board " + board)
 
 		if(!board.contains("_"))
 		 {
@@ -59,29 +65,30 @@ var testLib = new TestLib();
 
 // Board returns state once a move has been made
 
-var output1 = ticTacToeGame.MakeAMove("x_________")
-testLib.Test(output1, "x_________"); 
+val (postion, mark) = (0, 'x')
+var output1 = ticTacToeGame.MakeAMove(postion, mark)
+testLib.Test(output1, "x_________");
 
-// Simple x win
+// // Simple x win
 
-var output2 = ticTacToeGame.MakeAMove("xxx_______")
-testLib.Test(output2, "x wins! xxx_______");
+// var output2 = ticTacToeGame.MakeAMove("xxx_______")
+// testLib.Test(output2, "x wins! xxx_______");
 
-// Simple o win
+// // Simple o win
 
-var output3 = ticTacToeGame.MakeAMove("ooo_______")
-testLib.Test(output3, "o wins! ooo_______"); 
+// var output3 = ticTacToeGame.MakeAMove("ooo_______")
+// testLib.Test(output3, "o wins! ooo_______"); 
 
-// Game over
+// // Game over
 
-var output4 = ticTacToeGame.MakeAMove("xoxoxoxox")
-testLib.Test(output4, "game over! - no winner");   
+// var output4 = ticTacToeGame.MakeAMove("xoxoxoxox")
+// testLib.Test(output4, "game over! - no winner");   
 
-// Invalid move
+// // Invalid move
 
-ticTacToeGame.MakeAMove("ooo_______")
-var output4 = ticTacToeGame.MakeAMove("oox_______")
-testLib.Test(output4, "invalid move! ooo_______"); 
+// ticTacToeGame.MakeAMove("ooo_______")
+// var output4 = ticTacToeGame.MakeAMove("oox_______")
+// testLib.Test(output4, "invalid move! ooo_______"); 
 
 // TODO - uppcase getting converted to lower case?
 
