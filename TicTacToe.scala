@@ -7,6 +7,11 @@ var board = ""
 	def MakeAMove(input:String): String = {
 		 
 		 board = input
+
+		if(!board.contains("_"))
+		 {
+		 	return "game over! - no winner"
+		 }
 		 
 		 if(board.contains("xxx"))
 		 {
@@ -65,7 +70,12 @@ testLib.Test(output2, "x wins! xxx_______");
 // Simple o win
 
 var output3 = ticTacToeGame.MakeAMove("ooo_______")
-testLib.Test(output3, "o wins! ooo_______");  
+testLib.Test(output3, "o wins! ooo_______"); 
+
+// Game over
+
+var output4 = ticTacToeGame.MakeAMove("xoxoxoxox")
+testLib.Test(output4, "game over! - no winner");   
 
 // TODO - uppcase getting converted to lower case?
 
